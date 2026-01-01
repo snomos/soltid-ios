@@ -24,26 +24,49 @@ struct SolarTime {
 }
 
 /// Bereknar soltid basert på geografisk posisjon
-/// Dette er ein forenkla implementasjon basert på lokaltid-biblioteket sitt API
+/// Bruker lokaltid Rust-biblioteket via FFI
 class SolarTimeCalculator {
     
     /// Bereknar soltid for gitt posisjon og tid
-    /// Basert på enkelt prinsipp: 15° lengdegrad = 1 time forskjell
-    /// Dette er ein forenkla versjon - for full presisjon bør ein bruka Rust-biblioteket
+    /// Bruker lokaltid-biblioteket for presis berekningar
     static func calculate(for location: Location, at date: Date = Date()) -> SolarTime {
-        // Berekn offset basert på lengdegrad
-        // 15° lengdegrad = 1 time (3600 sekund)
-        // 1° lengdegrad = 4 minutt (240 sekund)
-        let offsetSeconds = (location.longitude / 15.0) * 3600.0
-        
-        // Legg til offset på datoen
-        let solarDate = date.addingTimeInterval(offsetSeconds)
-        
-        return SolarTime(date: solarDate, offsetSeconds: offsetSeconds)
+        do {
+            // Kall Rust-biblioteket via FFI
+            let timestamp = Int64(date.timeIntervalSince1970)
+            let result = try calculateSolarTimeForLocation(
+                latitude: location.latitude,
+                longitude: location.longitude,
+                unixTimestamp: timestamp
+            )
+            
+            // Konverter til SolarTime
+            let solarDate = Date(timeIntervalSince1970: TimeInterval(result.unixTimestamp))
+            return SolarTime(date: solarDate, offsetSeconds: result.offsetSeconds)
+            
+        } catch {
+            // Fallback til enkel berekning om noko går gale
+            let offsetSeconds = (location.longitude / 15.0) * 3600.0
+            let solarDate = date.addingTimeInterval(offsetSeconds)
+            return SolarTime(date: solarDate, offsetSeconds: offsetSeconds)
+        }
     }
     
     /// Bereknar soltid for noverande tidspunkt
     static func calculateNow(for location: Location) -> SolarTime {
-        return calculate(for: location, at: Date())
+        do {
+            // Kall Rust-biblioteket via FFI
+            let result = try calculateSolarTimeNow(
+                latitude: location.latitude,
+                longitude: location.longitude
+            )
+            
+            // Konverter til SolarTime
+            let solarDate = Date(timeIntervalSince1970: TimeInterval(result.unixTimestamp))
+            return SolarTime(date: solarDate, offsetSeconds: result.offsetSeconds)
+            
+        } catch {
+            // Fallback til enkel berekning
+            return calculate(for: location, at: Date())
+        }
     }
 }
