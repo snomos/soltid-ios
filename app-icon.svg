@@ -1,0 +1,62 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFEB3B;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFDD00;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+        </filter>
+    </defs>
+    
+    <!-- Background with rounded corners and very light gray -->
+    <rect width="1024" height="1024" rx="180" fill="#F5F5F5"/>
+    
+    <!-- Sun rays - 12 rays total, 4 long (12,3,6,9) and 8 short -->
+    <g transform="translate(512, 512)">
+        <!-- Long rays at 12, 3, 6, 9 positions -->
+        <rect x="-20" y="-410" width="40" height="120" rx="20" fill="#FFEB3B"/>
+        <rect x="290" y="-20" width="120" height="40" rx="20" fill="#FFEB3B"/>
+        <rect x="-20" y="290" width="40" height="120" rx="20" fill="#FFEB3B"/>
+        <rect x="-410" y="-20" width="120" height="40" rx="20" fill="#FFEB3B"/>
+        
+        <!-- Short rays at 1, 2, 4, 5, 7, 8, 10, 11 o'clock positions -->
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(30)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(60)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(120)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(150)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(210)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(240)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(300)"/>
+        <rect x="-18" y="-380" width="36" height="90" rx="18" fill="#FFEB3B" transform="rotate(330)"/>
+    </g>
+    
+    <!-- Sun circle (main body) -->
+    <circle cx="512" cy="512" r="260" fill="#FFEB3B" filter="url(#shadow)"/>
+    <circle cx="512" cy="512" r="250" fill="#FFF176" opacity="0.5"/>
+    
+    <!-- Subtle clock dots (only 4 main positions) -->
+    <g transform="translate(512, 512)">
+        <circle cx="0" cy="-240" r="10" fill="#D4A017" opacity="0.6"/>
+        <circle cx="240" cy="0" r="10" fill="#D4A017" opacity="0.6"/>
+        <circle cx="0" cy="240" r="10" fill="#D4A017" opacity="0.6"/>
+        <circle cx="-240" cy="0" r="10" fill="#D4A017" opacity="0.6"/>
+    </g>
+    
+    <!-- Clock hands (more subtle, integrated into sun design) -->
+    <g transform="translate(512, 512)">
+        <!-- Hour hand (golden) -->
+        <g transform="rotate(-60)">
+            <rect x="-14" y="-130" width="28" height="140" fill="#D4A017" rx="14" opacity="0.85" filter="url(#shadow)"/>
+        </g>
+        
+        <!-- Minute hand (golden) -->
+        <g transform="rotate(60)">
+            <rect x="-11" y="-180" width="22" height="190" fill="#D4A017" rx="11" opacity="0.85" filter="url(#shadow)"/>
+        </g>
+        
+        <!-- Center -->
+        <circle cx="0" cy="0" r="25" fill="#D4A017" opacity="0.9"/>
+        <circle cx="0" cy="0" r="15" fill="#FFD700"/>
+    </g>
+</svg>
