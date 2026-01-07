@@ -11,6 +11,7 @@
 		419DC8F92F0E475C00278876 /* lokaltid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419DC8F82F0E475C00278876 /* lokaltid.xcframework */; };
 		A1000001100000000000011 /* LokaltidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001000000000000001 /* LokaltidApp.swift */; };
 		A1000002100000000000012 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002000000000000002 /* ContentView.swift */; };
+		A1000003100000000000013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000003000000000000003 /* Assets.xcassets */; };
 		A1000005100000000000015 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005000000000000005 /* Location.swift */; };
 		A1000006100000000000016 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000006000000000000006 /* LocationManager.swift */; };
 		A1000007100000000000017 /* SolarTimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000007000000000000007 /* SolarTimeCalculator.swift */; };
@@ -180,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1000003100000000000013 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
