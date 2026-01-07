@@ -31,7 +31,7 @@ struct ContentView: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("Soltid")
                                         .font(.headline)
-                                    Text(viewModel.formatTime(viewModel.solarTime))
+                                    Text(viewModel.formatTime(viewModel.solarTime, useUTC: true))
                                         .font(.system(.title2, design: .monospaced))
                                 }
                             } icon: {
@@ -42,9 +42,9 @@ struct ContentView: View {
                             
                             Label {
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("Standardtid")
+                                    Text("Lokal tid")
                                         .font(.headline)
-                                    Text(viewModel.formatTime(viewModel.standardTime))
+                                    Text(viewModel.formatTime(viewModel.standardTime, useUTC: false))
                                         .font(.system(.title2, design: .monospaced))
                                 }
                             } icon: {

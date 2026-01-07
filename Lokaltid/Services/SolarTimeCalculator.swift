@@ -39,7 +39,8 @@ class SolarTimeCalculator {
                 unixTimestamp: timestamp
             )
             
-            // Konverter til SolarTime
+            // Rust returnerer unix_timestamp som er UTC + solar_offset
+            // Me brukar dette direkte - det representerer soltida
             let solarDate = Date(timeIntervalSince1970: TimeInterval(result.unixTimestamp))
             return SolarTime(date: solarDate, offsetSeconds: result.offsetSeconds)
             
@@ -60,7 +61,7 @@ class SolarTimeCalculator {
                 longitude: location.longitude
             )
             
-            // Konverter til SolarTime
+            // Rust returnerer unix_timestamp som er UTC + solar_offset
             let solarDate = Date(timeIntervalSince1970: TimeInterval(result.unixTimestamp))
             return SolarTime(date: solarDate, offsetSeconds: result.offsetSeconds)
             

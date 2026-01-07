@@ -5,11 +5,21 @@ struct AnalogClockView: View {
     let solarTime: Date
     let standardTime: Date
     let radius: CGFloat
+    let solarCalendar: Calendar
+    let standardCalendar: Calendar
     
     init(solarTime: Date, standardTime: Date, radius: CGFloat = 150) {
         self.solarTime = solarTime
         self.standardTime = standardTime
         self.radius = radius
+        
+        // Soltid skal visast i UTC
+        var utcCalendar = Calendar.current
+        utcCalendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        self.solarCalendar = utcCalendar
+        
+        // Standardtid skal visast i lokal tidssone
+        self.standardCalendar = Calendar.current
     }
     
     var body: some View {
@@ -40,14 +50,16 @@ struct AnalogClockView: View {
                 .frame(width: 12, height: 12)
             
             // STANDARDTID (gråe visarar) - teiknar desse først så dei er bak
-            ClockHands(time: standardTime, 
+            ClockHands(time: standardTime,
+                      calendar: standardCalendar,
                       hourColor: .gray, 
                       minuteColor: .gray.opacity(0.8), 
                       secondColor: .gray.opacity(0.6),
                       radius: radius)
             
             // SOLTID (kvite visarar) - teiknar desse sist så dei er framme
-            ClockHands(time: solarTime, 
+            ClockHands(time: solarTime,
+                      calendar: solarCalendar,
                       hourColor: .white, 
                       minuteColor: .white.opacity(0.9), 
                       secondColor: .white.opacity(0.7),
@@ -60,14 +72,11 @@ struct AnalogClockView: View {
 /// Visarar for klokka
 struct ClockHands: View {
     let time: Date
+    let calendar: Calendar
     let hourColor: Color
     let minuteColor: Color
     let secondColor: Color
     let radius: CGFloat
-    
-    private var calendar: Calendar {
-        Calendar.current
-    }
     
     private var hour: Int {
         calendar.component(.hour, from: time)
@@ -85,17 +94,17 @@ struct ClockHands: View {
     private var hourAngle: Angle {
         let hourRotation = Double(hour % 12) * 30.0 // 360/12 = 30° per time
         let minuteRotation = Double(minute) * 0.5   // 30/60 = 0.5° per minutt
-        return Angle(degrees: hourRotation + minuteRotation - 90)
+        return Angle(degrees: hourRotation + minuteRotation)
     }
     
     private var minuteAngle: Angle {
         let rotation = Double(minute) * 6.0 // 360/60 = 6° per minutt
-        return Angle(degrees: rotation - 90)
+        return Angle(degrees: rotation)
     }
     
     private var secondAngle: Angle {
         let rotation = Double(second) * 6.0 // 360/60 = 6° per sekund
-        return Angle(degrees: rotation - 90)
+        return Angle(degrees: rotation)
     }
     
     var body: some View {
@@ -133,7 +142,7 @@ struct HourMarker: View {
     let radius: CGFloat
     
     private var angle: Angle {
-        Angle(degrees: Double(hour) * 30 - 90) // 360/12 = 30° per time
+        Angle(degrees: Double(hour) * 30) // 360/12 = 30° per time
     }
     
     var body: some View {

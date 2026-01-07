@@ -58,9 +58,14 @@ class ClockViewModel {
     }
     
     /// Formater tid for visning
-    func formatTime(_ date: Date) -> String {
+    /// - Parameter date: Datoen som skal formaterast
+    /// - Parameter useUTC: Om tida skal visast i UTC (for soltid) eller lokal tidssone (for standardtid)
+    func formatTime(_ date: Date, useUTC: Bool = false) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
+        if useUTC {
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        }
         return formatter.string(from: date)
     }
     
