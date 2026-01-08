@@ -1,0 +1,4 @@
+module soltidFFI {
+    header "soltidFFI.h"
+    export *
+}

@@ -646,7 +646,7 @@ private enum InitializationResult {
 }
 // Use a global variable to perform the versioning checks. Swift ensures that
 // the code inside is only computed once.
-private let initializationResult: InitializationResult = {
+nonisolated(unsafe) private var initializationResult: InitializationResult = {
     // Get the bindings contract version from our ComponentInterface
     let bindings_contract_version = 26
     // Get the scaffolding contract version by calling the into the dylib
@@ -654,10 +654,10 @@ private let initializationResult: InitializationResult = {
     if bindings_contract_version != scaffolding_contract_version {
         return InitializationResult.contractVersionMismatch
     }
-    if (uniffi_soltid_checksum_func_calculate_solar_time_for_location() != 4885) {
+    if (uniffi_soltid_checksum_func_calculate_solar_time_for_location() != 257) {
         return InitializationResult.apiChecksumMismatch
     }
-    if (uniffi_soltid_checksum_func_calculate_solar_time_now() != 35399) {
+    if (uniffi_soltid_checksum_func_calculate_solar_time_now() != 22885) {
         return InitializationResult.apiChecksumMismatch
     }
 
