@@ -1,0 +1,24 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="shadow">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+        </filter>
+    </defs>
+    
+    <!-- Clock hands at 10:10 position -->
+    <g transform="translate(512, 512)">
+        <!-- Hour hand (golden) -->
+        <g transform="rotate(-60)">
+            <rect x="-14" y="-130" width="28" height="140" fill="#D4A017" rx="14" opacity="0.85" filter="url(#shadow)"/>
+        </g>
+        
+        <!-- Minute hand (golden) -->
+        <g transform="rotate(60)">
+            <rect x="-11" y="-180" width="22" height="190" fill="#D4A017" rx="11" opacity="0.85" filter="url(#shadow)"/>
+        </g>
+        
+        <!-- Center -->
+        <circle cx="0" cy="0" r="25" fill="#D4A017" opacity="0.9"/>
+        <circle cx="0" cy="0" r="15" fill="#FFD700"/>
+    </g>
+</svg>
