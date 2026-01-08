@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		419DC8F52F0E464200278876 /* lokaltid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC8F42F0E464200278876 /* lokaltid.swift */; };
-		419DC8F92F0E475C00278876 /* lokaltid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419DC8F82F0E475C00278876 /* lokaltid.xcframework */; };
+		419DC8F52F0E464200278876 /* soltid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC8F42F0E464200278876 /* soltid.swift */; };
+		419DC8F92F0E475C00278876 /* soltid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419DC8F82F0E475C00278876 /* soltid.xcframework */; };
 		A1000001100000000000011 /* LokaltidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001000000000000001 /* LokaltidApp.swift */; };
 		A1000002100000000000012 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002000000000000002 /* ContentView.swift */; };
 		A1000003100000000000013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000003000000000000003 /* Assets.xcassets */; };
@@ -17,12 +17,11 @@
 		A1000007100000000000017 /* SolarTimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000007000000000000007 /* SolarTimeCalculator.swift */; };
 		A1000008100000000000018 /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000008000000000000008 /* AnalogClockView.swift */; };
 		A1000009100000000000019 /* ClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000009000000000000009 /* ClockViewModel.swift */; };
-		A1000011100000000000021 /* LokaltidFFI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000011000000000000011 /* LokaltidFFI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		419DC8F42F0E464200278876 /* lokaltid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = lokaltid.swift; path = Generated/lokaltid.swift; sourceTree = "<group>"; };
-		419DC8F82F0E475C00278876 /* lokaltid.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = lokaltid.xcframework; path = Frameworks/lokaltid.xcframework; sourceTree = "<group>"; };
+		419DC8F42F0E464200278876 /* soltid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = soltid.swift; path = Generated/soltid.swift; sourceTree = "<group>"; };
+		419DC8F82F0E475C00278876 /* soltid.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = soltid.xcframework; path = Frameworks/soltid.xcframework; sourceTree = "<group>"; };
 		A1000001000000000000001 /* LokaltidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LokaltidApp.swift; sourceTree = "<group>"; };
 		A1000002000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1000003000000000000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,7 +31,6 @@
 		A1000007000000000000007 /* SolarTimeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarTimeCalculator.swift; sourceTree = "<group>"; };
 		A1000008000000000000008 /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		A1000009000000000000009 /* ClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewModel.swift; sourceTree = "<group>"; };
-		A1000011000000000000011 /* LokaltidFFI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LokaltidFFI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +48,7 @@
 		419DC8F72F0E475C00278876 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				419DC8F82F0E475C00278876 /* lokaltid.xcframework */,
+				419DC8F82F0E475C00278876 /* soltid.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -67,7 +65,7 @@
 		A1000021000000000000021 /* Lokaltid */ = {
 			isa = PBXGroup;
 			children = (
-				419DC8F42F0E464200278876 /* lokaltid.swift */,
+				419DC8F42F0E464200278876 /* soltid.swift */,
 				A1000001000000000000001 /* LokaltidApp.swift */,
 				A1000002000000000000002 /* ContentView.swift */,
 				A1000023000000000000023 /* Models */,
@@ -116,7 +114,6 @@
 			children = (
 				A1000006000000000000006 /* LocationManager.swift */,
 				A1000007000000000000007 /* SolarTimeCalculator.swift */,
-				A1000011000000000000011 /* LokaltidFFI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -192,7 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				419DC8F52F0E464200278876 /* lokaltid.swift in Sources */,
+				419DC8F52F0E464200278876 /* soltid.swift in Sources */,
 				A1000001100000000000011 /* LokaltidApp.swift in Sources */,
 				A1000002100000000000012 /* ContentView.swift in Sources */,
 				A1000005100000000000015 /* Location.swift in Sources */,
@@ -200,7 +197,6 @@
 				A1000007100000000000017 /* SolarTimeCalculator.swift in Sources */,
 				A1000008100000000000018 /* AnalogClockView.swift in Sources */,
 				A1000009100000000000019 /* ClockViewModel.swift in Sources */,
-				A1000011100000000000021 /* LokaltidFFI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +366,7 @@
 				DEVELOPMENT_TEAM = 72FB6FBAM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IMPORT_PATHS = "$(PROJECT_DIR)/Frameworks/lokaltid.xcframework/$(PLATFORM_NAME)*/Headers";
+				IMPORT_PATHS = "$(PROJECT_DIR)/Frameworks/soltid.xcframework/$(PLATFORM_NAME)*/Headers";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Appen bruker di posisjon for å rekna ut soltid basert på lengdegrad.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -1,4 +1,0 @@
-module lokaltidFFI {
-    header "lokaltidFFI.h"
-    export *
-}
