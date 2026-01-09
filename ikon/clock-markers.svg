@@ -1,9 +1,9 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
     <!-- Clock hour markers (only 4 main positions) -->
     <g transform="translate(512, 512)">
-        <circle cx="0" cy="-240" r="10" fill="#D4A017" opacity="0.6"/>
-        <circle cx="240" cy="0" r="10" fill="#D4A017" opacity="0.6"/>
-        <circle cx="0" cy="240" r="10" fill="#D4A017" opacity="0.6"/>
-        <circle cx="-240" cy="0" r="10" fill="#D4A017" opacity="0.6"/>
+        <circle cx="0" cy="-240" r="20" fill="#D4A017" opacity="0.6"/>
+        <circle cx="240" cy="0" r="20" fill="#D4A017" opacity="0.6"/>
+        <circle cx="0" cy="240" r="20" fill="#D4A017" opacity="0.6"/>
+        <circle cx="-240" cy="0" r="20" fill="#D4A017" opacity="0.6"/>
     </g>
 </svg>
