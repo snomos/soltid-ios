@@ -1,0 +1,37 @@
+{
+  "fill" : {
+    "automatic-gradient" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill" : {
+            "solid" : "srgb:0.00000,0.17065,0.32111,1.00000"
+          },
+          "image-name" : "clock-hands.svg",
+          "name" : "clock-hands"
+        },
+        {
+          "image-name" : "sun-and-rays.svg",
+          "name" : "sun-and-rays"
+        }
+      ],
+      "name" : "ikon",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
