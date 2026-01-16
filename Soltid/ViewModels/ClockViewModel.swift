@@ -50,9 +50,30 @@ class ClockViewModel {
         let result = SolarTimeCalculator.calculateNow(for: location)
         solarTime = result.date
         
-        // Berekn offset mellom soltid og lokal tid (ikkje UTC)
-        let offsetInSeconds = solarTime.timeIntervalSince(standardTime)
-        let totalSeconds = abs(Int(offsetInSeconds))
+        // Berekn offset mellom soltid (vist i UTC) og lokal tid (vist i lokal tidssone)
+        // Me må samanlikna time-of-day verdiane i deira respektive tidssoner
+        let calendar = Calendar.current
+        let utcTimeZone = TimeZone(secondsFromGMT: 0)!
+        let localTimeZone = TimeZone.current
+        
+        // Hent time/minutt/sekund for soltid (i UTC)
+        let solarComponents = calendar.dateComponents(in: utcTimeZone, from: solarTime)
+        let solarHour = solarComponents.hour ?? 0
+        let solarMinute = solarComponents.minute ?? 0
+        let solarSecond = solarComponents.second ?? 0
+        
+        // Hent time/minutt/sekund for lokal tid (i lokal tidssone)
+        let standardComponents = calendar.dateComponents(in: localTimeZone, from: standardTime)
+        let standardHour = standardComponents.hour ?? 0
+        let standardMinute = standardComponents.minute ?? 0
+        let standardSecond = standardComponents.second ?? 0
+        
+        // Berekn offset i sekund basert på klokkeslett som blir vist
+        let solarTotalSeconds = solarHour * 3600 + solarMinute * 60 + solarSecond
+        let standardTotalSeconds = standardHour * 3600 + standardMinute * 60 + standardSecond
+        let offsetInSeconds = solarTotalSeconds - standardTotalSeconds
+        
+        let totalSeconds = abs(offsetInSeconds)
         let hours = totalSeconds / 3600
         let minutes = (totalSeconds % 3600) / 60
         let seconds = totalSeconds % 60
